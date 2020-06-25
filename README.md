@@ -1,1 +1,1 @@
-# Diseno-Digital-CRC-
+# CRC (Cyclic Redundancy Check)-
