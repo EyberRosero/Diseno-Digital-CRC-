@@ -5,16 +5,16 @@ Para esta guía suponga que está enviando paquetes de datos a un dispositivo cr
 
 - Utiliza el polinomio CRC-32 (Ethernet): 0x4C11DB7
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=X^{32}&plus;X^{26}&plus;X^{23}&plus;X^{22}&plus;X^{16}&plus;X^{12}&plus;X^{11}&plus;X^{10}&plus;X^{8}&plus;X^{7}&plus;X^{5}&plus;X^{4}&plus;X^{2}&plus;X&plus;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?X^{32}&plus;X^{26}&plus;X^{23}&plus;X^{22}&plus;X^{16}&plus;X^{12}&plus;X^{11}&plus;X^{10}&plus;X^{8}&plus;X^{7}&plus;X^{5}&plus;X^{4}&plus;X^{2}&plus;X&plus;1" title="X^{32}+X^{26}+X^{23}+X^{22}+X^{16}+X^{12}+X^{11}+X^{10}+X^{8}+X^{7}+X^{5}+X^{4}+X^{2}+X+1" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;X^{32}&plus;X^{26}&plus;X^{23}&plus;X^{22}&plus;X^{16}&plus;X^{12}&plus;X^{11}&plus;X^{10}&plus;X^{8}&plus;X^{7}&plus;X^{5}&plus;X^{4}&plus;X^{2}&plus;X&plus;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;X^{32}&plus;X^{26}&plus;X^{23}&plus;X^{22}&plus;X^{16}&plus;X^{12}&plus;X^{11}&plus;X^{10}&plus;X^{8}&plus;X^{7}&plus;X^{5}&plus;X^{4}&plus;X^{2}&plus;X&plus;1" title="\small X^{32}+X^{26}+X^{23}+X^{22}+X^{16}+X^{12}+X^{11}+X^{10}+X^{8}+X^{7}+X^{5}+X^{4}+X^{2}+X+1" /></a>
 
 - Alternativamente, utiliza un polinomio totalmente programable con un tamaño programable (7, 8, 16, 32 bits)
 - Maneja tamaño de datos de 8, 16, 32 bits
-- valor inicial de CRC programable
-- Registro de datos de 32 bits de entrada / salida única
+- Valor inicial de CRC programable
+- Registro de datos de 32 bits de entrada/salida única
 - Búfer de entrada para evitar la parada del bus durante el cálculo
--Cálculo de CRC realizado en 4 ciclos de reloj AHB (HCLK) para el tamaño de datos de 32 bits
--Registro de 8 bits de uso general (se puede usar para almacenamiento temporal)
-- Opción de reversibilidad en datos de E / S
+- Cálculo de CRC realizado en 4 ciclos de reloj AHB (HCLK) para el tamaño de datos de 32 bits
+- Registro de 8 bits de uso general (se puede usar para almacenamiento temporal)
+- Opción de reversibilidad en datos de E/S
 
 
 La unidad de cálculo CRC se utiliza para obtener un código CRC de una palabra de datos de 8, 16 o 32 bits y un polinomio generador.
