@@ -110,4 +110,4 @@ Puede ver el codigo completo incluido funciones de ayuda [aquí](https://github.
 
 2. En la función `int main(void)`crear un ciclo en el cual se pongan 4 bytes en el registro de datos de 32 bits a la vez, y se obtenga el código CRC al final.
 
-Puede ver el código solución de la actividad propuesta [aquí]().
+Puede ver el código solución de la actividad propuesta [aquí](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/solucion_actividad.md).
