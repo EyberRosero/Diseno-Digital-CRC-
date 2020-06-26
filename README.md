@@ -53,13 +53,23 @@ El periférico CRC en la serie **L** contiene un total de 5 registros que se des
 
 1. `CRC_DR` : el **CRC data register**. Al escribir en el registro de datos, le está dando al motor CRC los datos de entrada sobre los cuales calculará el CRC. Cuando lea del registro de datos obtendrá el resultado de ese cálculo.
 
+![alt text](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/CRC_DR.JPG)
+
 2. `CRC_IDR` : el **CRC idr** almacena datos que realmente no tiene absolutamente ningún propósito en el cálculo de CRC, el manual dice que quizás puede usarlo para almacenar un byte de datos.
 
-3. `CRC_CR` : el **CRC control register** nos permite configurar el CRC para invertir los datos de entrada o los datos de salida. Le permite seleccionar el tamaño polinómico. Y le permite restablecer todo el cálculo
+![alt text](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/CRC_IDR.JPG)
 
-4. `CRC_INIT` : el **CRC init regiter** le permite establecer el valor inicial de CRC, de forma predeterminada se establece en `0xFFFF FFFF`
+3. `CRC_CR` : el **CRC control register** nos permite configurar el CRC para invertir los datos de entrada o los datos de salida. Le permite seleccionar el tamaño polinómico. Y le permite restablecer todo el cálculo.
 
-5. `CRC_POL` : el **CRC poli register** le permite elegir el coeficiente polinómico utilizado en los cálculos. El valor predeterminado es `0x04C1 1DB7`
+![alt text](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/CRC_CR.JPG)
+
+4. `CRC_INIT` : el **CRC init regiter** le permite establecer el valor inicial de CRC, de forma predeterminada se establece en `0xFFFF FFFF`.
+
+![alt text](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/CRC_INIT.JPG)
+
+5. `CRC_POL` : el **CRC poli register** le permite elegir el coeficiente polinómico utilizado en los cálculos. El valor predeterminado es `0x04C1 1DB7`.
+
+![alt text](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/CRC_POL.JPG)
 
 ## Código:
 
