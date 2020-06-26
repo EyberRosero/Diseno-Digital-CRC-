@@ -18,17 +18,25 @@ Para esta guía suponga que está enviando paquetes de datos a un dispositivo cr
 
 La siguiente imagen muestra la ejecución del algoritmo CRC paso a paso para las siguientes condiciones:
 
-- Input_Data = 0xC1
-- POLY = 0xCB
-- Initial_Crc = 0xFF
+- `Input_Data = 0xC1`
+- `POLY = 0xCB`
+- `Initial_Crc = 0xFF`
 
 ![alt text](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/Step-by-step%20CRC%20computing%20example.JPG)
 
 La idea detrás del algoritmo CRC es esta: 
 
-1. Comience con un valor CRC inicial, en este caso es 0xFF
+1. Comience con un valor CRC inicial, en este caso es 0xFF.
 
-2. Luego se hace XOR con los datos de entrada
+2. Luego se hace XOR con los datos de entrada.
+
+3. Si en el resultado del paso 2 el bit más significativo es 0, entonces simplemente desplaza ese número a la izquierda por 1.
+
+4. Si el resultado del paso 2 tiene un 1 en el bit mas significativo, entonces también se realiza un desplazamiento en 1, pero también se hace XOR con un polinomio elegido.
+
+5. Al realizar estos pasos, también se debe realizar un seguimiento de su "bindex", que no es más que un contador para realizar un seguimiento de cuántas veces ha cambiado. Este contador debe ser igual en magnitud al número de bits en sus datos. El ejemplo anterior va de 0 a 7, en otras palabras, 8 iteraciones para un número/dato de 8 bits. El punto es cambiar cada bit.
+
+6. El polinomio que se eligió no puede cambiar durante el proceso. Como puede ver arriba, el POLY es 0xCB y cada vez que se hace XOR con un POLY siempre es 0xCB
 ```
 as
 ```
