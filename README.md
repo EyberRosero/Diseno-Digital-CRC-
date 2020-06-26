@@ -40,6 +40,11 @@ La idea detrás del algoritmo CRC es esta:
 
 Finalmente, terminará con un valor final y este valor es su suma de verificación o **valor CRC**. Tenga en cuenta que si mantiene todos los parámetros iguales (`Initial_Crc`, `Input_Data`, `POLY`) siempre obtendrá el mismo valor de retorno. Esto está bien, porque lo que se esta haciendo es verificación de errores. Una cosa más a tener en cuenta es que CRC también se utiliza para verificar los datos escritos en la memoria. Por ejemplo, si está guardando en una tarjeta SD u otro dispositivo y desea verificar los datos escritos, ejecute un CRC en los datos originales y la copia para ver si coinciden.
 
+## Ejemplo de aplicación: 
+
+El escenario es el siguiente: se tienen dos dispositivos, uno es un receptor al que llamaremos RX y el otro es un transmisor al que llamaremos TX. El TX desea enviar datos al RX pero también quiere asegurarse de que los **datos enviados se ignoren si están dañados**. Por lo tanto, el TX ejecutará los datos que desea enviar a través de un algoritmo CRC. Luego tendrá un **código CRC** que será único para esos datos. Entonces **TX envía sus datos junto con el código CRC** al RX.
+Ahora RX recibe los datos y el código CRC. RX ejecutará los datos a través del mismo algoritmo CRC. RX ahora habrá calculado su propio código CRC. **RX ahora comparará el CRC que recibió con el que calculó** y si coinciden, entonces los datos no están dañados. Si los códigos CRC no coinciden, entonces algo está dañado y, por lo tanto, sabemos que el paquete recibido no es bueno y debe ser ignorado o manejado de alguna manera, tal vez pidiendo un reenvío de TX. Para que esto funcione, TX y RX deben usar exactamente el mismo algoritmo para la verificación de errores, por lo que todos los valores deben coincidir (`Initial_Crc`, `Input_Data`, `POLY`). Tenga en cuenta que si los códigos CRC no coinciden, esto podría significar que los datos estaban corruptos o tal vez el código CRC enviado estaba dañado, realmente no se podría saber, pero esto no cambia el hecho de que tenga datos corruptos.
+
 ```
 as
 ```
