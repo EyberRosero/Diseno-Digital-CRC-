@@ -16,9 +16,19 @@ Para esta guía suponga que está enviando paquetes de datos a un dispositivo cr
 - Registro de 8 bits de uso general (se puede usar para almacenamiento temporal)
 - Opción de reversibilidad en datos de E/S
 
+La siguiente imagen muestra la ejecución del algoritmo CRC paso a paso para las siguientes condiciones:
 
-La unidad de cálculo CRC se utiliza para obtener un código CRC de una palabra de datos de 8, 16 o 32 bits y un polinomio generador.
+- Input_Data = 0xC1
+- POLY = 0xCB
+- Initial_Crc = 0xFF
 
+![alt text](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/Step-by-step%20CRC%20computing%20example.JPG)
+
+La idea detrás del algoritmo CRC es esta: 
+
+1. Comience con un valor CRC inicial, en este caso es 0xFF
+
+2. Luego se hace XOR con los datos de entrada
 ```
 as
 ```
