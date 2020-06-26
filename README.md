@@ -45,6 +45,21 @@ Finalmente, terminará con un valor final y este valor es su suma de verificaci�
 El escenario es el siguiente: se tienen dos dispositivos, uno es un receptor al que llamaremos RX y el otro es un transmisor al que llamaremos TX. El TX desea enviar datos al RX pero también quiere asegurarse de que los **datos enviados se ignoren si están dañados**. Por lo tanto, el TX ejecutará los datos que desea enviar a través de un algoritmo CRC. Luego tendrá un **código CRC** que será único para esos datos. Entonces **TX envía sus datos junto con el código CRC** al RX.
 Ahora RX recibe los datos y el código CRC. RX ejecutará los datos a través del mismo algoritmo CRC. RX ahora habrá calculado su propio código CRC. **RX ahora comparará el CRC que recibió con el que calculó** y si coinciden, entonces los datos no están dañados. Si los códigos CRC no coinciden, entonces algo está dañado y, por lo tanto, sabemos que el paquete recibido no es bueno y debe ser ignorado o manejado de alguna manera, tal vez pidiendo un reenvío de TX. Para que esto funcione, TX y RX deben usar exactamente el mismo algoritmo para la verificación de errores, por lo que todos los valores deben coincidir (`Initial_Crc`, `Input_Data`, `POLY`). Tenga en cuenta que si los códigos CRC no coinciden, esto podría significar que los datos estaban corruptos o tal vez el código CRC enviado estaba dañado, realmente no se podría saber, pero esto no cambia el hecho de que tenga datos corruptos.
 
+## Registros del periferico CRC
+
+El periférico CRC en la serie **L** contiene un total de 5 registros que se describen a continuación.
+
+1. `CRC_DR` : el **CRC data register**. Al escribir en el registro de datos, le está dando al motor CRC los datos de entrada sobre los cuales calculará el CRC. Cuando lea del registro de datos obtendrá el resultado de ese cálculo.
+
+2. `CRC_IDR` : el **CRC idr** almacena datos que realmente no tiene absolutamente ningún propósito en el cálculo de CRC, el manual dice que quizás puede usarlo para almacenar un byte de datos.
+
+3. `CRC_CR` : el **CRC control register** nos permite configurar el CRC para invertir los datos de entrada o los datos de salida. Le permite seleccionar el tamaño polinómico. Y le permite restablecer todo el cálculo
+
+4. `CRC_INIT` : el **CRC init regiter** le permite establecer el valor inicial de CRC, de forma predeterminada se establece en `0xFFFF FFFF`
+
+5. `CRC_POL` : el **CRC poli register** le permite elegir el coeficiente polinómico utilizado en los cálculos. El valor predeterminado es `0x04C1 1DB7`
+
+
 ```
 as
 ```
