@@ -16,6 +16,8 @@ Para esta guía suponga que está enviando paquetes de datos a un dispositivo cr
 - Registro de 8 bits de uso general (se puede usar para almacenamiento temporal)
 - Opción de reversibilidad en datos de E/S
 
+## Algoritmo CRC 
+
 La siguiente imagen muestra la ejecución del algoritmo CRC paso a paso para las siguientes condiciones:
 
 - `Input_Data = 0xC1`
