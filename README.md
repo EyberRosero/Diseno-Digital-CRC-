@@ -75,4 +75,31 @@ void crc_init_8(void) {
 }
 ```
 
-Ahora aquí se ejecutan todos los datos a través del CRC y se obtiene el código CRC final el cual será usado para la suma de verificación.
+Ahora aquí se ejecutan todos los datos a través del CRC y se obtiene el código CRC final, el cual será usado para la suma de verificación.
+
+```
+int main(void) {
+    // datos ficticios para probar
+    uint8_t datos_array[4] = { 0x41, 0x20, 0xff, 0x10 };
+  
+    while (1) {
+        
+        //EX 1: Poner 4 bytes a través de CRC uno por uno, obtenga el código CRC al final
+        crc_init_8();
+        uint8_t i;
+        for (i = 0; i < 4; i++) {
+            CRC->DR = datos_array[i];
+        }
+        uart2_send((uint8_t) (CRC->DR & 0xFF));
+    }
+    return 0;
+}
+```
+
+La salida del código anterior en un monitor de puerto generado es:
+
+EX 1: `0xDB`
+
+Tenga en cuenta que no está limitado a utilizar un valor `POLY` de 8 bits y un `CRC_INIT` de 8 bits para sus datos de 8 bits, puede configurarlo para el modo de 32 bits y ejecutar sus datos de 8 bits a través de él. Luego obtendrá un código CRC de 32 bits único para sus datos de 8 bits si así lo prefiere. 
+
+Ahora aquí está todo el código, incluidas las funciones de ayuda.
