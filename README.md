@@ -80,7 +80,7 @@ Ahora aquí se ejecutan todos los datos a través del CRC y se obtiene el códig
 ```
 int main(void) {
     // datos ficticios para probar
-    uint8_t datos_array[4] = { 0x41, 0x20, 0xff, 0x10 };
+    uint8_t data_array[4] = { 0x41, 0x20, 0xff, 0x10 };
   
     while (1) {
         
@@ -88,7 +88,7 @@ int main(void) {
         crc_init_8();
         uint8_t i;
         for (i = 0; i < 4; i++) {
-            CRC->DR = datos_array[i];
+            CRC->DR = data_array[i];
         }
         uart2_send((uint8_t) (CRC->DR & 0xFF));
     }
