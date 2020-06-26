@@ -59,7 +59,20 @@ El periférico CRC en la serie **L** contiene un total de 5 registros que se des
 
 5. `CRC_POL` : el **CRC poli register** le permite elegir el coeficiente polinómico utilizado en los cálculos. El valor predeterminado es `0x04C1 1DB7`
 
+## Código:
+
+A continuación hay una funcion separada que inicializa el CRC para usar un polinomio de 8 bits.
 
 ```
-as
+void crc_init_8(void) {
+
+    RCC->AHBENR |= RCC_AHBENR_CRCEN;       // Habilitar reloj para CRC
+    CRC->CR  |= CRC_CR_RESET;              // Reestablecer calculo
+    CRC->POL  = 0xCB;                      // Se asigna el polinomio deseado
+    CRC->CR   = 2 << CRC_CR_POLYSIZE_Pos;  // Establecer poly a 8 bits
+    CRC->INIT = 0xFF;                      // Valor inicial también de 8 bits
+    
+}
 ```
+
+Ahora aquí se ejecutan todos los datos a través del CRC y se obtiene el código CRC final el cual será usado para la suma de verificación.
