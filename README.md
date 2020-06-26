@@ -26,7 +26,7 @@ La siguiente imagen muestra la ejecución del algoritmo CRC paso a paso para las
 
 La idea detrás del algoritmo CRC es esta: 
 
-1. Comience con un valor CRC inicial, en este caso es 0xFF.
+1. Comience con un valor CRC inicial, en este caso es `0xFF`.
 
 2. Luego se hace XOR con los datos de entrada.
 
@@ -36,7 +36,10 @@ La idea detrás del algoritmo CRC es esta:
 
 5. Al realizar estos pasos, también se debe realizar un seguimiento de su "bindex", que no es más que un contador para realizar un seguimiento de cuántas veces ha cambiado. Este contador debe ser igual en magnitud al número de bits en sus datos. El ejemplo anterior va de 0 a 7, en otras palabras, 8 iteraciones para un número/dato de 8 bits. El punto es cambiar cada bit.
 
-6. El polinomio que se eligió no puede cambiar durante el proceso. Como puede ver arriba, el POLY es 0xCB y cada vez que se hace XOR con un POLY siempre es 0xCB
+6. El polinomio que se eligió no puede cambiar durante el proceso. Como puede ver arriba, el `POLY` es `0xCB` y cada vez que se hace XOR con un `POLY` siempre es `0xCB`.
+
+Finalmente, terminará con un valor final y este valor es su suma de verificación o **valor CRC**. Tenga en cuenta que si mantiene todos los parámetros iguales (`Initial_Crc`, `Input_Data`, `POLY`) siempre obtendrá el mismo valor de retorno. Esto está bien, porque lo que se esta haciendo es verificación de errores. Una cosa más a tener en cuenta es que CRC también se utiliza para verificar los datos escritos en la memoria. Por ejemplo, si está guardando en una tarjeta SD u otro dispositivo y desea verificar los datos escritos, ejecute un CRC en los datos originales y la copia para ver si coinciden.
+
 ```
 as
 ```
