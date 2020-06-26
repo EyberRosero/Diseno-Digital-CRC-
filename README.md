@@ -1,4 +1,4 @@
-# **GUÍA:** *Cyclic redundancy check calculation unit (CRC)- STM32LXX*
+# **GUÍA:** *Cyclic redundancy check (CRC)- STM32LXX*
 Para esta guía suponga que está enviando paquetes de datos a un dispositivo crítico, los paquetes contienen información que le indica al dispositivo que continúe operando o de lo contrario prodria causar accidentes fatales. Ahora imagine que los datos se corrompen, por medio de EMI (Electro Magnetic Interference) o cualquier forma de interferencia. Ahora es posible que la corrupción haya modificado el comando para que el dispositivo ocasione accidentes fatales. Sería conveniente si hubiera una manera de prevenir la corrupción de datos por completo, para poder generar una alarma o apagado del dispositivos para evitar resultados no deseados. Uno de los métodos para prevenir la corrupcion de datos es la verificación de redundancia cíclica (CRC).
 
 ## Características principales de CRC para microcontroladores STM32LXX:
