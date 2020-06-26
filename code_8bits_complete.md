@@ -1,3 +1,4 @@
+## Código completo incluido funciones de ayuda
 ```
 /* Includes */
 #include <stddef.h>
