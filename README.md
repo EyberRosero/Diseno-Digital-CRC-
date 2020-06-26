@@ -96,10 +96,16 @@ int main(void) {
 }
 ```
 
-La salida del código anterior en un monitor de puerto generado es:
+El código CRC del código anterior en un monitor de puerto generado es:
 
 EX 1: `0xDB`
 
 Tenga en cuenta que no está limitado a utilizar un valor `POLY` de 8 bits y un `CRC_INIT` de 8 bits para sus datos de 8 bits, puede configurarlo para el modo de 32 bits y ejecutar sus datos de 8 bits a través de él. Luego obtendrá un código CRC de 32 bits único para sus datos de 8 bits si así lo prefiere. 
 
 Puede descargar el codigo completo incluido funciones de ayuda ![aquí]().
+
+## Tarea propuesta:
+
+1. Crear una función `void crc_init_32(void)` en la cual se asigne y establezca un polinomio de 32 bits y un valor inicial tambien de 32 bits. 
+
+2. En la función `int main(void)`crear un ciclo en el cual se pongan 4 bytes en el registro de datos de 32 bits a la vez, y se obtenga el código CRC al final.
