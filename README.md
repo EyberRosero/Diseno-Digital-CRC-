@@ -104,7 +104,7 @@ EX 1: `0xDB`
 
 Tenga en cuenta que no está limitado a utilizar un valor `POLY` de 8 bits y un `CRC_INIT` de 8 bits para sus datos de 8 bits, puede configurarlo para el modo de 32 bits y ejecutar sus datos de 8 bits a través de él. Luego obtendrá un código CRC de 32 bits único para sus datos de 8 bits si así lo prefiere. 
 
-Puede ver el codigo completo incluido funciones de ayuda [aquí](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/code_8bits_complete.md).
+Puede ver el código completo incluido funciones de ayuda [aquí](https://github.com/EyberRosero/Diseno-Digital-CRC-/blob/master/code_8bits_complete.md).
 
 ## Actividad propuesta:
 
